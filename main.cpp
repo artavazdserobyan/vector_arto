@@ -1,30 +1,46 @@
 #include <iostream>
-
-#include "vector.h" 
-
-using namespace std;
+#include "vector.h"
 
 int main() {
-    Vector a;
+    Vector myVector;
+    myVector.push_back(10);
+    myVector.push_back(30);
+    myVector.push_back(40);
+    myVector.push_back(100);
+    myVector.push_back(-50);
 
-    a.push_back(10);
-    a.push_back(20);
-    a.push_back(30);
+    std::cout << "myVector size: " << myVector.size() << std::endl;
 
-    a[0];
-    a[1];
-    a[2];
+    Vector myVector2 = myVector;
 
-    a.size();
+    myVector2.push_back(100);
 
-    Vector b(a);
+    std::cout << "myVector2[5]: " << myVector2[5] << std::endl;
 
-    Vector c;
-    c = a;
+    if (myVector.size() > 5)
+        std::cout << "myVector[5]: " << myVector[5] << std::endl;
+    else
+        std::cout << "myVector has no index 5!" << std::endl;
 
-    a.empty();
+    std::cout << "myVector2 size: " << myVector2.size() << std::endl;
 
-    c[1];
+    Vector myVector3;
+    myVector3.push_back(200);
+
+    
+    myVector3 = myVector3;
+
+    myVector3 = myVector2 = myVector;
+
+    myVector2.push_back(100); 
+
+    std::cout << "myVector3[0]: " << myVector3[0] << std::endl;
+    std::cout << "myVector3 empty: " << myVector3.empty() << std::endl;
+    std::cout << "myVector3[3]: " << myVector3[3] << std::endl;
+
+    myVector[0] = 1000; 
+    std::cout << "myVector[0] after modification: " << myVector[0] << std::endl;
+    std::cout << "myVector2[0] should not change: " << myVector2[0] << std::endl;
 
     return 0;
 }
