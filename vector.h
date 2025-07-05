@@ -15,6 +15,9 @@ public:
         int size() const;
         bool empty() const;
 
+        Vector(Vector&& other);             
+        Vector& operator=(Vector&& rhs);
+
 
 private:
     int m_size;
