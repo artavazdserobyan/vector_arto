@@ -17,6 +17,14 @@
         m_size=other.m_size;
     };
 
+    Vector::Vector(Vector&& other)
+    : m_arr(other.m_arr), m_size(other.m_size), m_capacity(other.m_capacity) 
+{
+    other.m_arr = nullptr;
+    other.m_size = 0;
+    other.m_capacity = 0;
+}
+
     Vector& Vector::operator=(const Vector& rhs){
      if (this != &rhs) {
         delete[] m_arr;
@@ -30,6 +38,20 @@
     return *this;
 }
 
+    Vector& Vector::operator=(Vector&& rhs){
+     if (this != &rhs) {
+        delete[] m_arr;
+        m_size = rhs.m_size;
+        m_capacity = rhs.m_capacity;
+        m_arr = new int[m_capacity];
+        
+        rhs.m_arr = nullptr;
+        rhs.m_size = 0;
+        rhs.m_capacity = 0;
+        }
+            return *this;
+
+    }
 
     int& Vector::operator[](int index){
         return m_arr[index];
