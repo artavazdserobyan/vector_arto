@@ -8,7 +8,7 @@
     }
 
     Vector::~Vector(){
-        delete m_arr;
+        delete [] m_arr;
     }
 
     Vector::Vector(const Vector& other){
