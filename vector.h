@@ -18,6 +18,9 @@ public:
         Vector(Vector&& other);             
         Vector& operator=(Vector&& rhs);
 
+        int& front();
+        int& back();
+
 
 private:
     int m_size;
