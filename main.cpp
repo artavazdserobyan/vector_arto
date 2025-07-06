@@ -42,5 +42,20 @@ int main() {
     std::cout << "myVector[0] after modification: " << myVector[0] << std::endl;
     std::cout << "myVector2[0] should not change: " << myVector2[0] << std::endl;
 
+
+     Vector v;
+    v.push_back(10);
+    v.push_back(20);
+    v.push_back(30);
+
+    std::cout << "Front: " << v.front() << std::endl; 
+    std::cout << "Back: " << v.back() << std::endl;   
+
+    v.front() = 100;
+    v.back() = 300;
+
+    std::cout << "Modified Front: " << v.front() << std::endl; 
+    std::cout << "Modified Back: " << v.back() << std::endl;   
+    
     return 0;
 }
