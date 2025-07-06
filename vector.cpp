@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "vector.h"
 
     Vector::Vector(){
@@ -8,7 +10,7 @@
     }
 
     Vector::~Vector(){
-        delete [] m_arr;
+        delete m_arr;
     }
 
     Vector::Vector(const Vector& other){
@@ -80,4 +82,22 @@
 
     bool Vector::empty() const{
         return m_size==0;
+    }
+
+    int& Vector::front(){
+        if(m_size==0){
+            std::cout<<"Vector is empty"<<std::endl;
+        }
+        else{
+            return m_arr[0];
+        }
+    }
+
+    int& Vector::back(){
+        if(m_size==0){
+            std::cout<<"Vector is empty"<<std::endl;
+        }
+        else{
+            return m_arr[m_size-1];
+        }
     }
